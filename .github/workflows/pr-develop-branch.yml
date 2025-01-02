@@ -87,7 +87,7 @@ jobs:
               # as this allows us to reference the list in a subsequent step.  If you
               # were using a normal env variable, its value would not be available outside this step.
               run: |
-                  echo $PR_BODY > ./pr_body.txt
+                   $PR_BODY > ./pr_body.txtecho
                   node ./parsePR.js              
                   TESTS=$(cat testsToRun.txt)       
                   echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
@@ -119,7 +119,9 @@ jobs:
 
             # Install SFDX scanner
             - name: 'Installing SFDX scanner'
-              run: sfdx plugins:install @salesforce/sfdx-scanner
+              run: |
+                echo n | node version
+                sfdx plugins:install @salesforce/sfdx-scanner
 
             # Prior to setting up this workflow, you have to create a Github Secret
             # that contains the sfdx url of the integration/qa org.
