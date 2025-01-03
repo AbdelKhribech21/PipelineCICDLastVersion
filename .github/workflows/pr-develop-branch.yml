@@ -36,6 +36,10 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: '18.18.0'
+                cache: 'npm'
+            # Now we do a first check of the node version
+            - name: Verify Node.js version
+              run: node --version
 
             # The idea is that the VM can access your remote repository
             # because your repository is an sfdx project.
