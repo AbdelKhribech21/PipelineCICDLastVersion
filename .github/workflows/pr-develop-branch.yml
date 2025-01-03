@@ -36,7 +36,7 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: '18.18.0'
-                
+
             # Now we do a first check of the node version
             - name: Verify Node.js version
               run: node --version
@@ -128,6 +128,12 @@ jobs:
             - name: Clearcache
               run: |
                   npm cache clean --force
+
+            # Ensure correct Node 
+            - name: Ensure correct Node.js version
+              run: |
+                  export PATH="$HOME/.nvm/versions/node/v18.18.0/bin:$PATH"
+                  node --version
 
             # Install SFDX scanner
             - name: 'Installing SFDX scanner'
