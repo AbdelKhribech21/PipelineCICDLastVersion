@@ -35,8 +35,7 @@ jobs:
             - name : Use Node.js 
               uses: actions/setup-node@v4
               with:
-                node-version: '18.18.0'
-            - run: npm install --global sfdx-cli
+                node-version: 'latest'
 
             # The idea is that the VM can access your remote repository
             # because your repository is an sfdx project.
@@ -88,9 +87,9 @@ jobs:
               # were using a normal env variable, its value would not be available outside this step.
               run: |
                    $PR_BODY > ./pr_body.txtecho
-                  node ./parsePR.js              
-                  TESTS=$(cat testsToRun.txt)       
-                  echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
+                   node ./parsePR.js              
+                   TESTS=$(cat testsToRun.txt)       
+                   echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
                   
             # Now Install Salesforce CLI
             - name: 'Install Salesforce CLI'
