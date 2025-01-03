@@ -116,11 +116,19 @@ jobs:
               run: |
                 sudo apt-get update
                 sudo apt install default-jdk
+            
+            # Check Node version
+            - name: Verify Node version
+              run: node --version
+            
+            # Clear cache
+            - name: Clearcache
+              run: |
+                  npm cache clean --force
 
             # Install SFDX scanner
             - name: 'Installing SFDX scanner'
-              run: |
-                echo n | node version
+              run:
                 sfdx plugins:install @salesforce/sfdx-scanner
 
             # Prior to setting up this workflow, you have to create a Github Secret
