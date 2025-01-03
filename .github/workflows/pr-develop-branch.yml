@@ -103,7 +103,7 @@ jobs:
             - name: Use Node.js
               uses: actions/setup-node@v4
               with:
-                node-version: '18.18.0'
+                node-version: '20.0.0'
 
             # Then we install the SFDX-Git-Delta plugin - https://github.com/scolladon/sfdx-git-delta
             # This is an awesome plugin that allows us to extract a package.xml with the metadata
